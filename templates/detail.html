@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+        {% for project in projects %}
+        <section class="header">
+            <h1 id='pro'>{{ project.title }}</h1>
+            <p>{{ project.date.strftime('%-m/%-d/%Y') }}</p>
+            <a href="{{ project.url }}" class="github-btn" target="_blank">
+                <i class="fab fa-github"></i>
+                View on GitHub
+            </a>
+            <ul class="project-skills">
+                <div>
+                    {% for skill in project.skills_used.split(', ') %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                </div>
+            </ul>
+        </section>
+        {% endfor %}
+        <section id="project-desc">
+            <div id="triangle5"></div>
+            <h2>Description</h2>
+            <p>
+                Some projects i have worked on which shows my progress and skills. 
+            </p>
+            <div id="triangle6"></div>
+        </section>
+        <section id="edit-delete">
+            <a href="{{ url_for('edit', id=project.id) }}">
+                <i class="fas fa-edit"></i>
+                Edit
+            </a>
+            <a href="{{ url_for('delete', id=project.id) }}">
+                <i class="far fa-trash-alt"></i>
+                Delete
+            </a>
+        </section>
+
+{% endblock %}

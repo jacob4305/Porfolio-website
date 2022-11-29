@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+        <section class="header">
+            <h1>Python Developer</h1>
+            <p>I love coding and am always ready to expand what i know.</p>
+            <img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.6435-9/135011424_3300449566725707_8531822799314644307_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Eq6oBX-XpYwAX-JGl87&_nc_ht=scontent-sea1-1.xx&oh=00_AfANcOzguioBeBmhdqDJBZ5-741D2ntrlMqh2qCNdWpjtg&oe=63A21F9D" alt="Picture of me in front of a river" width='600' height='600'>
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I love coding, camping, hunting and fishing. 
+                I have been teaching my self how to code and love learning.
+            </p>
+            <div id="triangle1"></div>
+            <div id="triangle2"></div>
+        </section>
+        <section id="skills">
+            <i class="fas fa-laptop-code"></i>
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQLAlchemy</li>
+                <li>GitHub</li>
+                <li>Sublime text</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <div id="triangle3"></div>
+            <i class="fas fa-file-code"></i>
+            <h2>Projects</h2>
+            {% for project in projects %}
+            <div id="project-list">
+                <div id="project1" class="a-project">
+                    <h3>{{ project.title }}</h3>
+                    <a href="{{ project.url }}" class="github-btn" target="_blank">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>
+                        {{ project.description }}
+                    </p>
+                    <p>
+                        skills used: {{ project.skills_used }} 
+                    </p>
+                </div>
+            {% endfor %}
+            </div>
+            <div id="triangle4"></div>
+        </section>
+        <section id="contact">
+            <i class="fas fa-paper-plane"></i>
+            <h2>Contact Me</h2>
+            <p>
+                Id love to work for you! Contact information below.
+            </p>
+            <p>
+                <i class="fas fa-envelope"></i>
+                jacob4305@gmail.com
+            </p>
+        </section>
+        
+{% endblock %}
