@@ -72,7 +72,7 @@ def create_form_date(request_form_date):
 
 def undo_form_date(string):
 	"""will create a string to display in html"""
-	project_date_string = datetime.datetime.strftime(string, '%-m/%-d/%Y')
+	project_date_string = datetime.datetime.strftime(string, '%y/%m/%d')
 	return project_date_string
 
 

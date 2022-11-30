@@ -3,14 +3,15 @@
 
 {% block content %}
 
-        {% for project in projects %}
+
         <section class="header">
             <h1 id='pro'>{{ project.title }}</h1>
-            <p>{{ project.date.strftime('%-m/%-d/%Y') }}</p>
+            <p>{{ project.date.strftime('%Y/%m/%d') }}</p>
             <a href="{{ project.url }}" class="github-btn" target="_blank">
                 <i class="fab fa-github"></i>
                 View on GitHub
             </a>
+
             <ul class="project-skills">
                 <div>
                     {% for skill in project.skills_used.split(', ') %}
@@ -19,12 +20,11 @@
                 </div>
             </ul>
         </section>
-        {% endfor %}
         <section id="project-desc">
             <div id="triangle5"></div>
             <h2>Description</h2>
             <p>
-                Some projects i have worked on which shows my progress and skills. 
+               {{ project.description }}  
             </p>
             <div id="triangle6"></div>
         </section>
